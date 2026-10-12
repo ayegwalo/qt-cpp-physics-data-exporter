@@ -8,7 +8,6 @@ on:
 
 jobs:
   build:
-    # Pinning explicitly to a stable Long-Term Support release version
     runs-on: ubuntu-24.04
 
     steps:
@@ -20,15 +19,13 @@ jobs:
         sudo apt-get update
         sudo apt-get install -y build-essential libgl1-mesa-dev libglu1-mesa-dev
 
-    - name: Install and Setup Qt Framework SDK
-      uses: jurplel/install-qt-action@v3
+    - name: Install and Setup Qt Framework SDK (Fixed Version)
+      uses: jurplel/install-qt-action@v4.3.1
       with:
-        version: '6.12.0'
-        host: 'linux'
+        version: '6.8.1'
         target: 'desktop'
-        arch: 'gcc_64'
+        arch: 'linux_gcc_64'
         modules: 'qtbase'
-        # Explicitly forces a reliable environment fallback to prevent script failures
         setup-python: 'false'
 
     - name: Configure CMake Build Variables
