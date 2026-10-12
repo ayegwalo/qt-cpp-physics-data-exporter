@@ -1,0 +1,35 @@
+name: Qt CMake CI Build Check
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Check out source code repository
+      uses: actions/checkout@v4
+
+    - name: Install System Dependencies and OpenGL
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y build-essential libgl1-mesa-dev libglu1-mesa-dev
+
+    - name: Install and Setup Qt Framework SDK
+      uses: jurplel/install-qt-action@v3
+      with:
+        version: '6.12.0'
+        host: 'linux'
+        target: 'desktop'
+        arch: 'gcc_64'
+        modules: 'qtbase'
+
+    - name: Configure CMake Build Variables
+      run: cmake -B build -DCMAKE_BUILD_TYPE=Release -DCMAKE_AUTOUIC=ON -DCMAKE_AUTOMOC=ON
+
+    - name: Compile Application Binary Executable
+      run: cmake --build build --config Release
