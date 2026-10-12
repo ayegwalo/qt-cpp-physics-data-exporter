@@ -14,10 +14,10 @@ jobs:
     - name: Check out source code repository
       uses: actions/checkout@v4
 
-    - name: Install Native Linux Compiler and Qt6 Development Libraries
+    - name: Install Native Linux Compiler and Complete Qt6 Development Modules
       run: |
         sudo apt-get update
-        sudo apt-get install -y build-essential cmake libgl1-mesa-dev qt6-base-dev qt6-base-private-dev
+        sudo apt-get install -y build-essential cmake libgl1-mesa-dev qt6-base-dev qt6-tools-dev
 
     - name: Configure CMake Build Variables
       run: cmake -B build -DCMAKE_BUILD_TYPE=Release -DCMAKE_AUTOUIC=ON -DCMAKE_AUTOMOC=ON
