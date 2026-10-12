@@ -8,7 +8,8 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    # Pinning explicitly to a stable Long-Term Support release version
+    runs-on: ubuntu-24.04
 
     steps:
     - name: Check out source code repository
@@ -27,6 +28,8 @@ jobs:
         target: 'desktop'
         arch: 'gcc_64'
         modules: 'qtbase'
+        # Explicitly forces a reliable environment fallback to prevent script failures
+        setup-python: 'false'
 
     - name: Configure CMake Build Variables
       run: cmake -B build -DCMAKE_BUILD_TYPE=Release -DCMAKE_AUTOUIC=ON -DCMAKE_AUTOMOC=ON
