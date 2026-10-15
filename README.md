@@ -49,9 +49,9 @@ The application ties user actions to physical hardware operations using Qt's Sig
 ## 📋 Prerequisites & Project Blueprint
 
 ### Directory Layout
-* 📄 **`mainwindow.h`**: Class declaration mapping framework slot macros (`slots:`) to automate visual signal listening handlers.
-* 📄 **`mainwindow.cpp`**: Concrete implementation containing widget styles, local memory lifecycle hooks, and safe file writing streams.
-* 📄 **`mainwindow.ui`**: Core layout definitions mapping screen spatial positions for the text canvas (`textEdit`) and execution button (`pushButton`).
+* **`mainwindow.h`**: Class declaration mapping framework slot macros (`slots:`) to automate visual signal listening handlers.
+* **`mainwindow.cpp`**: Concrete implementation containing widget styles, local memory lifecycle hooks, and safe file writing streams.
+* **`mainwindow.ui`**: Core layout definitions mapping screen spatial positions for the text canvas (`textEdit`) and execution button (`pushButton`).
 
 ### System Requirements
 * **C++ Compiler** Supporting C++17 or higher (GCC, Clang, or MSVC)
